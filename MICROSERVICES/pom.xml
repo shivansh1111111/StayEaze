@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.business.myproject</groupId>
+	<artifactId>myproject</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>config-service/config-service</module>
+		<module>admin-discovery/admin-discovery</module>
+		<module>api-gateway/api-gateway</module>
+		<module>auth-service/auth-service</module>
+		<module>booking/booking</module>
+		<module>integration/integration</module>
+		<module>notification/notification</module>
+	</modules>
+	
+</project>

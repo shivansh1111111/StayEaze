@@ -1,0 +1,29 @@
+server:
+  port: 9003
+
+spring:
+  application:
+    name: integration
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB      # Maximum file size
+      max-request-size: 50MB   # Maximum request size (for multiple files)
+
+# AWS S3 Configuration
+aws:
+  s3:
+    access-key: ${AWS_ACCESS_KEY}
+    secret-key: ${AWS_SECRET_KEY}
+    region: ap-south-1
+    bucket-name: stayeaze-booking-app
+
+logging:
+  level:
+    com.amazonaws: DEBUG
+
+# File Upload Configuration
+file:
+  upload:
+    allowed-extensions: jpg,jpeg,png,gif,webp
+    max-file-size: 10485760  # 10MB in bytes

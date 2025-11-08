@@ -1,0 +1,20 @@
+server:
+  port: 8998
+  http2:
+    enabled: true
+spring:
+  application:
+    name: config-service
+  profiles:
+    active: native #Tells Spring Cloud Config Server to load configuration files from the local filesystem or classpath instead of Git, SVN, or other remote repositories
+
+
+custom-props:
+  home-protocol: https
+  home-url: localhost
+  local-server: ${custom-props.home-protocol}://${custom-props.home-url}:${server.port}
+  log-file-root: C:\\logs
+
+logging:
+  file:
+    name: ${custom-props.log-file-root}/business-${spring.application.name}.log
