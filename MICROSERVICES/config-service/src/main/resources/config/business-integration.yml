@@ -1,0 +1,7 @@
+aws:
+  s3:
+    service:
+      base-url: http://localhost:9003
+      connection-timeout: 30000
+      read-timeout: 60000
+      upload-endpoint: /aws/s3/upload

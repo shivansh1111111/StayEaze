@@ -1,0 +1,33 @@
+server:
+  port: 9002
+
+custom-props:
+  home-protocol: http
+  home-url: localhost
+  local-server: ${custom-props.home-protocol}://${custom-props.home-url}:${server.port}
+  admin-discovery-server: http://localhost:8091
+  log-file-root: C:\\logs
+
+eureka:
+  client:
+    instance:
+      hostname: ${custom-props.home-url}
+      instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+      statusPageUrlPath: ${custom-props.local-server}/info
+      healthCheckUrlPath: ${custom-props.local-server}/health
+    serviceUrl:
+      defaultZone: ${custom-props.admin-discovery-server}/eureka/ #Map of availability zone to list of fully qualified URLs to communicate with eureka server. Each value can be a single URL or a comma separated list of alternative locations. Typically the eureka server URLs carry protocol,host,port,context and version information if any. Example: http://localhost:8081/eureka/ The changes are effective at runtime at the next service url refresh cycle as specified by eurekaServiceUrlPollIntervalSeconds.
+    register-with-eureka: true #Indicates whether or not this instance should register its information with eureka server for discovery by others. In some cases, you do not want your instances to be discovered whereas you just want do discover other instances. (default true)
+    fetch-registry: true #Indicates whether this client should fetch eureka registry information from eureka server. (default true)
+
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:mySecretKeyForJWTTokenGenerationThatShouldBeAtLeast256BitsLongsdoijfsdfuiosdjfsdf34534534534gfergfedfvdfgdfgdfgdfgv345345345345345}
+  access-token-expiration: 3600000    # 1 hour in milliseconds
+  refresh-token-expiration: 604800000  # 7 days in milliseconds
+  issuer: auth-service
+
+logging:
+  level:
+    com.business.auth: DEBUG
