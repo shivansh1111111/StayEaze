@@ -1,6 +1,6 @@
 spring:
 #  datasource:
-#    url: jdbc:oracle:thin:@localhost:1521/FREEPDB1
+#    url: jdbc:oracle:thin:@stayeaze:1521/FREEPDB1
 #    username: shivey
 #    password: business
 #    driver-class-name: oracle.jdbc.OracleDriver
@@ -11,7 +11,7 @@ spring:
 #      idle-timeout: 600000
 #      max-lifetime: 1800000
   datasource:
-    url: jdbc:oracle:thin:@localhost:5000/FREEPDB1
+    url: jdbc:oracle:thin:@stayeaze:5000/FREEPDB1
     username: STAYEAZE_APP
     password: app123
     driver-class-name: oracle.jdbc.OracleDriver

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: booking
+  profiles:
+    active: db, booking
+  cloud:
+    config:
+      request-read-timeout: 5000
+      fail-fast: true
+      name: business
+      label: master
+  main:
+    allow-bean-definition-overriding: true
+  config:
+    import:
+      - configserver:http://stayeaze:8998

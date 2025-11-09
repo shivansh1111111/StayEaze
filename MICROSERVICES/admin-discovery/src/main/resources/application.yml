@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: admin-discovery
+  cloud:
+    config:
+      request-read-timeout: 5000
+      fail-fast: true
+      name: admin-discovery
+  main:
+    allow-bean-definition-overriding: true
+  config:
+    import:
+      - configserver:http://stayeaze:8998

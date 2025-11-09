@@ -23,22 +23,22 @@ management:
 
 custom-props:
   home-protocol: http
-  home-url: localhost
+  home-url: stayeaze
   local-server: ${custom-props.home-protocol}://${custom-props.home-url}:${server.port} #server Location
-  admin-discovery-server: http://localhost:8091 #admin discovery server location
+  admin-discovery-server: http://stayeaze:8091 #admin discovery server location
   log-file-root: C:\\logs
 
 
 #Eureka Discovery Configuration
 eureka:
   instance:
-    hostname: localhost
+    hostname: stayeaze
   client:
     registerWithEureka: false
     fetchRegistry: false
     registryFetchIntervalSeconds: 5
     serviceUrl:
-      defaultZone: http://localhost:${server.port}/eureka/
+      defaultZone: http://stayeaze:${server.port}/eureka/
       
 logging:
   level:

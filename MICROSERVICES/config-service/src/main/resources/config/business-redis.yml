@@ -1,5 +1,5 @@
 spring:
   redis:
-    host: localhost
+    host: stayeaze
     port: 6379
     timeout: 2000ms

@@ -1,5 +1,5 @@
 server:
-  port: 9002
+  port: 9005
 
 custom-props:
   home-protocol: http
@@ -18,19 +18,23 @@ eureka:
     register-with-eureka: true #Indicates whether or not this instance should register its information with eureka server for discovery by others. In some cases, you do not want your instances to be discovered whereas you just want do discover other instances. (default true)
     fetch-registry: true #Indicates whether this client should fetch eureka registry information from eureka server. (default true)
 
-
-# JWT Configuration
-jwt:
-  secret: ${JWT_SECRET:mySecretKeyForJWTTokenGenerationThatShouldBeAtLeast256BitsLongsdoijfsdfuiosdjfsdf34534534534gfergfedfvdfgdfgdfgdfgv345345345345345}
-  access-token-expiration: 3600000    # 1 hour in milliseconds
-  refresh-token-expiration: 604800000  # 7 days in milliseconds
-  issuer: auth-service
-
-logging:
-  level:
-    com.business.auth: DEBUG
-
-notification:
-  service:
-    base-url: http://stayeaze:9005
-    endpoint: /notification/send/email
+#--------------------------------------------------------------------
+#               E-MAIL Service Configuration
+#--------------------------------------------------------------------
+spring.mail:
+  protocol: smtp
+  host: smtp.gmail.com
+  port: 587
+  username: shivanshrahangdale@gmail.com
+  password: yvnm cpxx xdel vzde
+  test-connection: false
+  default-encoding: UTF-8
+  properties:
+    mail:
+      debug: true
+      smtp:
+        auth: true
+        trust: smtp.gmail.com
+        starttls:
+          enable: true
+#--------------------------------------------------------------------

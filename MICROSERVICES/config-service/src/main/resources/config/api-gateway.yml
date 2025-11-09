@@ -5,18 +5,18 @@ server:
 
 custom-props:
   home-protocol: http
-  home-url: localhost
+  home-url: stayeaze
   local-server: ${custom-props.home-protocol}://${custom-props.home-url}:${server.port} 
-  admin-discovery-server: ${custom-props.home-protocol}://localhost:8091
+  admin-discovery-server: ${custom-props.home-protocol}://stayeaze:8091
   log-file-root: C:\\logs
 
 spring:
   boot:
     admin:
       client:
-        url: http://localhost:8091/spring-admin/   # URL of your Admin Server
+        url: http://stayeaze:8091/spring-admin/   # URL of your Admin Server
         instance:
-          service-url: http://localhost:${server.port}  # ensure Admin knows how to call back
+          service-url: http://stayeaze:${server.port}  # ensure Admin knows how to call back
   cloud:
     gateway:
       httpclient:
@@ -42,7 +42,7 @@ spring:
               
       routes:
         - id: business-booking-places
-          uri: http://localhost:8080
+          uri: http://stayeaze:9003
           predicates:
             - Path=/businessCompany/places/**
             - Method=GET
@@ -54,7 +54,7 @@ spring:
                 name: fallbackcmd
                 fallbackUri: forward:/serviceNotAvailable
         - id: business-booking
-          uri: http://localhost:8080
+          uri: http://stayeaze:9003
           predicates:
             - Path=/businessCompany/**
           filters:
@@ -69,7 +69,7 @@ spring:
                 name: fallbackcmd
                 fallbackUri: forward:/serviceNotAvailable
         - id: auth-service-public
-          uri: http://localhost:9002
+          uri: http://stayeaze:9002
           predicates:
             - Path=/auth/register, /auth/login, /auth/health
           filters:
@@ -80,7 +80,7 @@ spring:
                 name: fallbackcmd
                 fallbackUri: forward:/serviceNotAvailable
         - id: auth-service-protected
-          uri: http://localhost:9002
+          uri: http://stayeaze:9002
           predicates:
             - Path=/auth/logout, /auth/refresh
           filters:
@@ -180,12 +180,10 @@ logging:
 eureka:
   client:
     instance:
-      hostname: localhost
+      hostname: stayeaze
       instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
-      statusPageUrlPath: ${custom-props.local-server}/info
-      healthCheckUrlPath: ${custom-props.local-server}/health
     serviceUrl:
-      defaultZone: ${custom-props.admin-discovery-server}/eureka/ #Map of availability zone to list of fully qualified URLs to communicate with eureka server. Each value can be a single URL or a comma separated list of alternative locations. Typically the eureka server URLs carry protocol,host,port,context and version information if any. Example: http://localhost:8081/eureka/ The changes are effective at runtime at the next service url refresh cycle as specified by eurekaServiceUrlPollIntervalSeconds.
+      defaultZone: ${custom-props.admin-discovery-server}/eureka/ #Map of availability zone to list of fully qualified URLs to communicate with eureka server. Each value can be a single URL or a comma separated list of alternative locations. Typically the eureka server URLs carry protocol,host,port,context and version information if any. Example: http://stayeaze:8081/eureka/ The changes are effective at runtime at the next service url refresh cycle as specified by eurekaServiceUrlPollIntervalSeconds.
     register-with-eureka: true #Indicates whether or not this instance should register its information with eureka server for discovery by others. In some cases, you do not want your instances to be discovered whereas you just want do discover other instances. (default true)
     fetch-registry: true    
 

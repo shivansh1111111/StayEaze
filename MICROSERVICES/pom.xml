@@ -6,13 +6,13 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>config-service/config-service</module>
-		<module>admin-discovery/admin-discovery</module>
-		<module>api-gateway/api-gateway</module>
-		<module>auth-service/auth-service</module>
-		<module>booking/booking</module>
-		<module>integration/integration</module>
-		<module>notification/notification</module>
+		<module>config-service</module>
+		<module>admin-discovery</module>
+		<module>api-gateway</module>
+		<module>auth-service</module>
+		<module>booking</module>
+		<module>integration</module>
+		<module>notification</module>
 	</modules>
 	
 </project>
