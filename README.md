@@ -1,2 +1,2 @@
 # StayEaze
-An stay Booking Application at your ease and comfort .
+An Full Stack stay Booking Application at your ease and comfort .
