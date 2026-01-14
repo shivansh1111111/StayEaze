@@ -5,13 +5,6 @@ spring:
       max-file-size: 10MB      # Maximum file size
       max-request-size: 50MB   # Maximum request size (for multiple files)
 
-# AWS S3 Configuration
-aws:
-  s3:
-    access-key: AKIAUZR2RGGHVN4BH6IA
-    secret-key: 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
-    region: ap-south-1
-    bucket-name: stayeaze-booking-app
 
 logging:
   level:
